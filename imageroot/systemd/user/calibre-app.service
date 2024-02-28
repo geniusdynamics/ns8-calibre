@@ -23,7 +23,6 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/calibre-app.pid \
     --pod-id-file %t/calibre.pod-id --replace -d --name  calibre-app \
     --volume /calibre/config:/config \
     --volume /calibre/uploads:/uploads \
-    --volume /calibre/plugins:/plugins \
     --volume /calibre/library:/Calibre_Library \
     --env=CALIBRE_* \
     --env TZ=Etc/UTC \
