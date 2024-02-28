@@ -25,7 +25,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/calibre-app.pid \
     --volume calibre-data:/config \
     --env=CALIBRE_* \
     --env TZ=Etc/UTC \
-    ${CALIBRE_WEB_IMAGE}
+    ${CALIBRE_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/calibre-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP calibre-app
 SyslogIdentifier=%u
