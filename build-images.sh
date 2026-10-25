@@ -14,7 +14,7 @@ images=()
 repobase="${REPOBASE:-ghcr.io/geniusdynamics}"
 # Configure the image name
 reponame="calibre"
-
+APP_VERSION="v9.17.0-ls429"
 # Create a new empty container image
 container=$(buildah from scratch)
 
@@ -45,7 +45,7 @@ buildah config --entrypoint=/ \
     --label="org.nethserver.authorizations=traefik@node:routeadm" \
     --label="org.nethserver.tcp-ports-demand=1" \
     --label="org.nethserver.rootfull=0" \
-    --label="org.nethserver.images=lscr.io/linuxserver/calibre:latest" \
+    --label="org.nethserver.images=lscr.io/linuxserver/calibre:${APP_VERSION}" \
     "${container}"
 # Commit the image
 buildah commit "${container}" "${repobase}/${reponame}"
